@@ -30,15 +30,13 @@ function showSlides(n) {
 function countdown(){
     var seconds=document.getElementById("seconds").Value;
     function tick(){
+    seconds=seconds-1;
     timer.innerHTML=seconds;
-    var time=setTimeout(tick,1000);
-    if(time==-1){
+    time=setTimeout(tick,1000);
+    if(seconds==-1){
         alert("time's up");
-        clearTimeout("timer");
-        timer.innerHTML="";
         }
     }
     tick();
 }
-
 
