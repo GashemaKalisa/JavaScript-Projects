@@ -180,14 +180,14 @@ function animateLineDrawing(){
         //This condition adds 10 to the previous end x endpoint.
         if(x < x2){x +=10;}
         //This condition adds 10 to the previous end y endpoint.
-        if(y < y2){y +=10;}
+        if(y < Y2){y +=10;}
         //This condition is similar to the one above.
         //This is necessary for the 6, 4, 2 win condition.
-        if(x >= x2 && y >=y2){cancelAnimationFrame(animationLoop);}
+        if(x >= x2 && y >=Y2){cancelAnimationFrame(animationLoop);}
     }
     //This condition is similar to the one above.
     //This is neccessary for the 6, 4, 2 win condition.
-    if (x1 <= x2 && y1>=y2) {
+    if (x1 <= x2 && y1>=Y2) {
         if(x < x2){x +=10;}
         if(y > Y2){y -=10;}
         if(x >= x2 && y<=Y2){cancelAnimationFrame(animationLoop);}
