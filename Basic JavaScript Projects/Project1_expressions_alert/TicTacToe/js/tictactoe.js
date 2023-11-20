@@ -213,7 +213,7 @@ setTimeout(function(){clear();resetGame();},1000);
 }
 
 //This function resets the game in the event of a tie or a win.
-function reserGame(){
+function resetGame(){
     //This for loop iterats through each HTML square element.
     for (let i = 0; i < 9; i++){
         //This variable gets the HTML element i.
