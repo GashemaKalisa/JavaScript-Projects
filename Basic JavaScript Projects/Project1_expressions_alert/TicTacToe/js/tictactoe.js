@@ -12,13 +12,13 @@ function placeXoro(squareNumber){
         //This variable retrieves the HTML element id that was clicked.
         let select=document.getElementById(squareNumber);
         //This condition checks who's turn it is .
-        if(activePlayer==='x'){
+        if(activePlayer==='X'){
             //if activePlayer is equal to 'x' the x.png is placed in HTMl
-            select.style.backgroundImage='url("images/x.png")';
+            select.style.backgroundImage='url("images/xx.png")';
             //Active Player may only be 'X' or 'o', so, if not 'x' it must be 'o'
         }else{
             //If activePlayer is equal to 'o', the o.png is placed in HTML
-            select.style.backgroundImage= 'url("images/o.png")';
+            select.style.backgroundImage= 'url("images/oo.png")';
         }
         //squareNumber and activePlayer are concatenated together and added to array.
         selectedSquares.push(squareNumber+activePlayer);
@@ -34,7 +34,7 @@ function placeXoro(squareNumber){
             activePlayer='X';
         }
         //This function plays placement sound.
-        audio('media/place.mp3');
+        audio('media/placee.wav');
         //This condition checks to see if it is the computers turn.
         if (activePlayer==='O') {
             //This function disables clicking for computer turn.
@@ -76,7 +76,7 @@ function checkWincondition(){
     //X 6,7,8 conditon.
     else if (arrayIncludes('6X','7X','8X')){drawWinLines(50,508,558,508)}
     //X 0, 3, 6, condition.
-    else if (arrayIncludes('0X','3X','6x')){drawWinLines(100,50,100,558)}
+    else if (arrayIncludes('0X','3X','6X')){drawWinLines(100,50,100,558)}
     // X 1, 4, 7 condition.
     else if (arrayIncludes('1X','4X','7X')){drawWinLines(304,50,304,558)}
     // X 2,5, 8 conditon.
@@ -105,7 +105,7 @@ function checkWincondition(){
     //9 squares are selected the code executes.
     else if (selectedSquares.length>=9){
         //This funtion plays the tie game sound.
-        audio('media/TimeRanges.mp3');
+        audio('media/tiee.wav');
         //This function sets a .3 second timer before the resetGame is called.
         setTimeout(function(){resetGame();},500);
     }
@@ -140,7 +140,7 @@ function audio(audioURL){
 }
 
 //This function utilizes HTML canvas to draw win lines.
-function drawWinLines(coordX1,ciirdY1, coordX2,coordY2){
+function drawWinLines(coordX1,coordY1, coordX2,coordY2){
 //This lines accessses our HTML canvas element.
 const canvas = document.getElementById('win-lines');
 //This lines gives us access to methods and properties to use on canvas.
@@ -176,7 +176,7 @@ function animateLineDrawing(){
     //This method draws everything we laid out above.
     c.stroke();
     //This condition checks if we've reached the end points.
-    if(x1<=x2 && y1<=y2){
+    if(x1<=x2 && y1<=Y2){
         //This condition adds 10 to the previous end x endpoint.
         if(x < x2){x +=10;}
         //This condition adds 10 to the previous end y endpoint.
@@ -188,9 +188,9 @@ function animateLineDrawing(){
     //This condition is similar to the one above.
     //This is neccessary for the 6, 4, 2 win condition.
     if (x1 <= x2 && y1>=y2) {
-        if(s < x2){x +=10;}
-        if(y > y2){y -=10;}
-        if(x >= x2 && y<=y2){cancelAnimationFrame(animationLoop);}
+        if(x < x2){x +=10;}
+        if(y > Y2){y -=10;}
+        if(x >= x2 && y<=Y2){cancelAnimationFrame(animationLoop);}
     }
 }
 //This function clears our canvas after our win line is drawn.
@@ -205,7 +205,7 @@ function clear(){
 //This line disallows clicking while the win sounds is  playing
 disableClick();
 //this line plays the win sounds.
-audio('media/winGame.mp3');
+audio('media/winGamee.wav');
 //This line calls our main animation loop.
 animateLineDrawing();
 //This line waits 1 second. Then, clears canvas, resets game, an allows clicking again.
