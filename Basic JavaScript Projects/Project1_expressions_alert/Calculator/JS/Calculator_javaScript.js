@@ -15,7 +15,7 @@ function Input_Digit(digit){
     const {Display_Value, Wait_Second_Operand } = Calculator;
     //This checks if the Wait_Second_Operand is true and sets Display_Value
     //to the key that was clicked on.
-    if (wait_Second_Operand === true){
+    if (Wait_Second_Operand === true){
         Calculator.Display_Value = digit;
         Calculator.Wait_Second_Operand = false;
     }else{
@@ -53,7 +53,7 @@ function Handle_Operator(Next_Operator){
     if (First_Operand == null) {
         Calculator.First_Operand = Value_of_Input;
     }else if (operator) {//Checks if an operator already exists
-    const Value_now = First_Operand || 0;
+    const Value_Now = First_Operand || 0;
     //If operator exists, property lookup is performed for the operator
     //in the Perform_Calcultion object and the function that matches the 
     //operator is exexcuted.
@@ -73,7 +73,7 @@ const Perform_Calculation = {
     '*':(First_Operand, Second_Operand) => First_Operand * Second_Operand,
     '+':(First_Operand, Second_Operand) => First_Operand + Second_Operand,
     '-':(First_Operand, Second_Operand) => First_Operand - Second_Operand,
-    '=':(First_Operand, Second_Operand) => First_Operand 
+    '=':(First_Operand, Second_Operand) => Second_Operand 
 };
 function Calculator_Reset() {
     Calculator.Display_Value = '0';
@@ -85,8 +85,8 @@ function Calculator_Reset() {
 function Update_Display(){
     //Makes use of the calculator-screen class to target the
     //input tag in the HTML document
-    const dispay = document.querySelector('.calculator-screen');
-    Display_Value = Calculator.Display_Value;
+    const display = document.querySelector('.calculator-screen');
+    display_Value = Calculator.Display_Value;
 }
 
 Update_Display();
@@ -101,8 +101,8 @@ keys.addEventListener('click', (event)=>{
     if (!target.matches('button')){
         return;
     }
-    if (!target.classList.contains('operator')){
-        Handle-operator(target.value);
+    if (target.classList.contains('operator')){
+        Handle-Operator(target.value);
         Update_Display();
         return;
     }
