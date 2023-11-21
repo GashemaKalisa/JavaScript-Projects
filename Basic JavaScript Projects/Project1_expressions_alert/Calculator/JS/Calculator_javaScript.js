@@ -86,12 +86,12 @@ function Update_Display(){
     //Makes use of the calculator-screen class to target the
     //input tag in the HTML document
     const display = document.querySelector('.calculator-screen');
-    display_Value = Calculator.Display_Value;
+    display_value = Calculator.Display_Value
 }
 
 Update_Display();
 //This section monitors button clicks 
-const keys = document.querySelector('.Calculator-keys');
+const keys = document.querySelector('.calculator-keys');
 keys.addEventListener('click', (event)=>{
 //keys.addEventListener('click', (event) =>{
     //The target variable is an object that represents the element
@@ -102,7 +102,7 @@ keys.addEventListener('click', (event)=>{
         return;
     }
     if (target.classList.contains('operator')){
-        Handle-Operator(target.value);
+        Handle_Operator(target.value);
         Update_Display();
         return;
     }
