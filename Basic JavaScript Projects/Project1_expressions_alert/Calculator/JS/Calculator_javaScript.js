@@ -86,7 +86,7 @@ function Update_Display(){
     //Makes use of the calculator-screen class to target the
     //input tag in the HTML document
     const display = document.querySelector('.calculator-screen');
-    display_value = Calculator.Display_Value
+    display.value = Calculator.Display_Value;
 }
 
 Update_Display();
