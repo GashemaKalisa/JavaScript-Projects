@@ -47,41 +47,35 @@ function add(){
     show();
     return false;
 }
-
-//this functionkeeps the tasks permanently displayed on the screen
+/*This function keeps the tasks permanetly displayed on the screen */
 function show(){
-    //this sets the task that was retrieved as a variable
-    var todos = get_todos();
-    //This this sets up each task as an unordered list
-    var html = '<ul>';
-    //this displays a task to the list in the order that it is inputed
-    for (var i = 0; i < todos.length; i++) {
-        //this also displays the task as a list and creates the button with the "X"
-        html += '<li>' + todos[i] + '<button class = "remove" id="'+ i+ '">x</button></li>';
-    };
-    html += '</ul';
-
-    //This tells the browser how to display the todo array after an item has been remove
-     var buttons = document.getElementsByClassName('remove');
-     for (var i = 0; o < buttons.length; i ++){
-        buttons[i].addEventListener('click'. remove);
-     };
-    //This displays the task as a list
-    document.getElementById('todos').innerHTML = html;
+// this sets the task that was retrieved as a variable
+var todos = get_todos();
+//This sets up each task as an unordered list
+var html = '<ul>';
+//this displays a task to the list in the order that it is inputed
+for (var i = 0; i < todos.length; i++) {
+    //this also displays the task as a list and creates the button with the "X"
+    html += '<li>' + todos[i] + '<button class ="remove" id="' + i +'">X</button></li>';
+ };
+ html += '</ul>';
+ //This displays the task as a list
+ document.getElementById('todos').innerHTML=html;
 }
-
+ //This tells the browser how to display the todo
+ //array after an item has  been remove
+ var buttons = document.getElementsByClassName('remove');
+ for(var i = 0; i < buttons.length; i++){
+    buttons[i].addEventListener('click', remove);
+ }
 //This displays the inputed task when the 'Add Item' button is clicked
-document.getElementById('add').addEventListener("click", add);
-//this will keep the inputs dispalyed permentaly on the screen
-show()
+document.getElementById('add').addEventListener('click', add);
+//this will keep the inputs displayed permentaly on the screen
+show();
 
-//this creates the functionality of removing a todo item from the array
-function remove() {
-    var id = this.getAttribute('id');
+function remove(){
+    var id= this.getAttribute('id');
     var todos = get_todos();
     todos.splice(id, 1);
     localStorage.setItem('todo', JSON.stringify(todos));
-    //this looks in the show() how to display a removed item on the creen
-    show();
-    return false;
-}
+};
